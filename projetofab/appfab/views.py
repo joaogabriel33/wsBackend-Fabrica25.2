@@ -3,7 +3,7 @@ from .models import Marca, Veiculo
 import requests
 
 def home(request):
-    return render(request, 'home.html')  # ou qualquer template que queira
+    return render(request, 'home.html') 
 
 def lista_marcas(request):
     marcas = Marca.objects.all()
@@ -69,11 +69,9 @@ def deleta_veiculo(request, pk):
         return redirect("lista_veiculos")
     return render(request, "deletar-veiculo.html", {"veiculo": veiculo})
 
-
-
 def buscar_modelos(request):
     modelos = []
-    marca = request.GET.get("marca")  # pega a marca digitada no form
+    marca = request.GET.get("marca")
 
     if marca:
         url = f"https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/{marca}?format=json"

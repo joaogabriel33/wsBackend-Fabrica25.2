@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículo</title>
+</head>
+<body>
+    <h1>Criar Veículo</h1>
+    <form method="post">
+        {% csrf_token %}
+        Nome: <input type="text" name="nome"><br>
+        Tipo:
+        <select name="tipo">
+        <option value="carro">Carro</option>
+        <option value="moto">Moto</option>
+        </select><br>
+        Ano: <input type="number" name="ano"><br>
+        Marca:
+        <select name="marca">
+        {% for m in marcas %}
+        <option value="{{ m.id }}">{{ m.nome }}</option>
+        {% endfor %}
+        </select><br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

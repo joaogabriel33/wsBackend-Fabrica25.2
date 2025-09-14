@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de veiculos</title>
+</head>
+<body>
+    <h1>Veículos</h1>
+    {% for v in veiculos %}
+    <ul>
+  
+    <li>{{ v.nome }} - {{ v.tipo }} - {{ v.ano }} ({{ v.marca.nome }})</li>
+    </ul>
+    {% endfor %}
+<a href="{% url 'cria_veiculo' %}">Novo Veículo</a>
+
+</body>
+</html>

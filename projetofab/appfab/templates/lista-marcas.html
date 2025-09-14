@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista das Marcas</title>
+</head>
+<body>
+    <h1>Marcas</h1>
+    {% for marca in marcas %}
+    <ul>
+        <li>{{ marca.nome }} - {{ marca.pais_origem }}</li>
+    </ul>
+    {% endfor %}
+<a href="{% url 'cria_marca' %}">Nova Marca</a>
+</body>
+</html>

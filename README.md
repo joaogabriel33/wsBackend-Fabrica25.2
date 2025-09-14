@@ -45,8 +45,8 @@ Requests (para consumo da API externa)
 
 📥 Instalação e execução
 1️⃣ Clonar o repositório
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/joaogabriel33/wsBackend-Fabrica25.2.git
+cd projetofab
 
 2️⃣ Criar e ativar ambiente virtual
 python -m venv venv

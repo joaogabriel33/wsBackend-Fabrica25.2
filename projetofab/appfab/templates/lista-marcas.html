@@ -10,6 +10,9 @@
     {% for marca in marcas %}
     <ul>
         <li>{{ marca.nome }} - {{ marca.pais_origem }}</li>
+        <a href="{% url 'atualiza_marca' marca.id %}">Atualizar🔄</a>
+        <a href="{% url 'deleta_marca' marca.id %}">Deletar🗑️</a>
+        <a href="{% url 'lista_veiculos' %}">Seus veiculos🚘</a>
     </ul>
     {% endfor %}
 <a href="{% url 'cria_marca' %}">Nova Marca</a>

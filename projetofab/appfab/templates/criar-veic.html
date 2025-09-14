@@ -9,19 +9,19 @@
     <h1>Criar Veículo</h1>
     <form method="post">
         {% csrf_token %}
-        Nome: <input type="text" name="nome"><br>
+        Nome: <input type="text" name="nome"><br><br>
         Tipo:
         <select name="tipo">
         <option value="carro">Carro</option>
         <option value="moto">Moto</option>
-        </select><br>
-        Ano: <input type="number" name="ano"><br>
+        </select><br><br>
+        Ano: <input type="number" name="ano"><br><br>
         Marca:
         <select name="marca">
         {% for m in marcas %}
         <option value="{{ m.id }}">{{ m.nome }}</option>
         {% endfor %}
-        </select><br>
+        </select><br><br>
         <button type="submit">Salvar</button>
     </form>
 </body>

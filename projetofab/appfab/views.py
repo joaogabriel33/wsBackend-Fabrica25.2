@@ -24,7 +24,7 @@ def atualiza_marca(request, pk):
         marca.pais_origem = request.POST["pais_origem"]
         marca.save()
         return redirect("lista_marcas")
-    return render(request, "edita-marca.html", {"marca": marca})
+    return render(request, "criar-marcas.html", {"marca": marca})
 
 def deleta_marca(request, pk):
     marca = get_object_or_404(Marca, pk=pk)
@@ -60,7 +60,7 @@ def atualiza_veiculo(request, pk):
         veiculo.marca = Marca.objects.get(pk=marca_pk)
         veiculo.save()
         return redirect("lista_veiculos")
-    return render(request, "edita-veic.html", {"veiculo": veiculo, "marcas": marcas})
+    return render(request, "criar-veic.html", {"veiculo": veiculo, "marcas": marcas})
 
 def deleta_veiculo(request, pk):
     veiculo = get_object_or_404(Veiculo, pk=pk)
@@ -69,16 +69,18 @@ def deleta_veiculo(request, pk):
         return redirect("lista_veiculos")
     return render(request, "deletar-veiculo.html", {"veiculo": veiculo})
 
+
+
 def buscar_info_veiculo(request):
     dados = None
     if request.method == "POST":
-        modelo = request.POST["modelo"]
-        api_key = "SUA_CHAVE_AQUI"
-        url = f"https://api.api-ninjas.com/v1/vehicles?model={modelo}"
+        marca = request.POST["marca"]
+        api_key = "6AJ0UQMukSI8vEHORVwbpw==GNMn8mF3HOJbKzwc"
+        url = f"https://api.api-ninjas.com/v1/cars?make={marca}"
         headers = {"X-Api-Key": api_key}
         r = requests.get(url, headers=headers)
         if r.status_code == 200:
             dados = r.json()
     return render(request, "busc-inf.html", {"dados": dados})
- # ou qualquer template que queira
+
 

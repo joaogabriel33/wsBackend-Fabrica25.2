@@ -9,11 +9,13 @@
     <h1>Veículos</h1>
     {% for v in veiculos %}
     <ul>
-  
-    <li>{{ v.nome }} - {{ v.tipo }} - {{ v.ano }} ({{ v.marca.nome }})</li>
+        <li>{{ v.nome }} - {{ v.tipo }} - {{ v.ano }} ({{ v.marca.nome }})</li>
+        <a href="{% url 'atualiza_veiculo' v.id %}">Atualizar🔄</a>
+        <a href="{% url 'deleta_veiculo' v.id %}">Deletar🗑️</a>
     </ul>
     {% endfor %}
 <a href="{% url 'cria_veiculo' %}">Novo Veículo</a>
+<a href="{% url 'lista_marcas' %}">Voltar</a>
 
 </body>
 </html>

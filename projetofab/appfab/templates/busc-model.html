@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar</title>
+</head>
+    <body>
+        <h1>Consultar Modelos de Carro</h1>
+
+    <form method="get">
+        <input type="text" name="marca" placeholder="Digite a marca" value="{{ marca }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if modelos %}
+        <h2>Modelos da marca {{ marca }}:</h2>
+        <ul>
+            {% for modelo in modelos %}
+                <li>{{ modelo }}</li>
+            {% endfor %}
+        </ul>
+    {% elif marca %}
+        <p>Nenhum modelo encontrado para "{{ marca }}".</p>
+    {% endif %}
+</body>
+</html>

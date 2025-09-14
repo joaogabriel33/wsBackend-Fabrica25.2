@@ -71,16 +71,16 @@ def deleta_veiculo(request, pk):
 
 
 
-def buscar_info_veiculo(request):
-    dados = None
-    if request.method == "POST":
-        marca = request.POST["marca"]
-        api_key = "6AJ0UQMukSI8vEHORVwbpw==GNMn8mF3HOJbKzwc"
-        url = f"https://api.api-ninjas.com/v1/cars?make={marca}"
-        headers = {"X-Api-Key": api_key}
-        r = requests.get(url, headers=headers)
-        if r.status_code == 200:
-            dados = r.json()
-    return render(request, "busc-inf.html", {"dados": dados})
+def buscar_modelos(request):
+    modelos = []
+    marca = request.GET.get("marca")  # pega a marca digitada no form
+
+    if marca:
+        url = f"https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/{marca}?format=json"
+        response = requests.get(url)
+        data = response.json()
+        modelos = [m["Model_Name"] for m in data["Results"]]
+
+    return render(request, "busc-model.html", {"modelos": modelos, "marca": marca})
 
 

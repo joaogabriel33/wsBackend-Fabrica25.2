@@ -13,5 +13,5 @@ urlpatterns = [
     path("atualizarveic/<int:pk>/", views.atualiza_veiculo, name="atualiza_veiculo"),
     path("deletarveic/<int:pk>/", views.deleta_veiculo, name="deleta_veiculo"),
 
-    path("buscar/", views.buscar_info_veiculo, name="buscar_info"),
+    path("buscar/", views.buscar_modelos, name="buscar_modelos"),
 ]
